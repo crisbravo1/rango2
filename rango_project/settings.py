@@ -97,3 +97,6 @@ STATICFILES_DIRS = (
 
 )
 
+MEDIA_URL = '/media/' ## donde seran accesibles todos los archivos en el development server
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') ##donde se guardara los archivos subidos por el usuario en el disco local
+

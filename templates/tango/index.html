@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+
+{% load staticfiles %} <!-- New line -->
+
 <html>
 
-	<head>
-		 <title> Tango</title>t
+    <head>
+        <title>Rango</title>
+    </head>
 
-	</head>
-
-
-	<body>
-		 <h1> Rango says ...</h1>
-		 hello world! <strong>{{boldmessage}}</strong>
-		  <a href="/tango/about">About </a>
-
-	</body>
+    <body>
+        <h1>Rango says...</h1>
+        hello world! <strong>{{ boldmessage }}</strong><br />
+        <a href="/tango/about/">About</a><br />
+        <img src="{% static "images/g.jpg" %}" alt="Picture of Rango" /> <!-- New line -->
+    </body>
 
 </html>
