@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -29,5 +30,19 @@ class Page(models.Model):
 	def __str__(self):
 
 		return self.title
+
+class UserProfile(models.Model):
+	# Linea requerida. EL perfil del usuario solo esta asociado a una instancia
+	# de user
+	user=models.OneToOneField(User)
+
+
+	# otros atributos
+	website=models.URLField(blank=True)
+	picture=models.ImageField(upload_to='profile_images',blank=True)
+	# upload_to es un atributo que dice donde se guardara la imagen del usuario
+
+	def __unicode__(self):
+		return self.user.username
 
 
