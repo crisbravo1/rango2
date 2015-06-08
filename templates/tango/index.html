@@ -5,14 +5,28 @@
 <html>
 
     <head>
-        <title>Rango</title>
+        <title>Tango</title>
     </head>
 
     <body>
-        <h1>Rango says...</h1>
-        hello world! <strong>{{ boldmessage }}</strong><br />
+        <h1>Rango says... hello world !</h1>
+
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li><a href="/tango/category/{{category.slug}}">
+                {{category.name}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong> There are no categories present. </strong>
+        {% endif %}
+        <!--hello world! <strong>{{ boldmessage }}</strong><br /> -->
+        <!--<img src="{% static "images/g.jpg" %}" alt="Picture of Rango" /> -->
         <a href="/tango/about/">About</a><br />
-        <img src="{% static "images/g.jpg" %}" alt="Picture of Rango" /> <!-- New line -->
+         <!-- New line -->
+        <a href="/tango/add_category/">Add new category</a><br />
+
     </body>
 
 </html>

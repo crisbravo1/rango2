@@ -9,7 +9,7 @@ from tango.models import Category, Page
 
 
 def populate():
-    python_cat = add_cat('Python',likes=128,views=64)
+    python_cat = add_cat('Python',like=128,view=64)
 
     add_page(cat=python_cat,
         title="Official Python Tutorial",
@@ -23,7 +23,7 @@ def populate():
         title="Learn Python in 10 Minutes",
         url="http://www.korokithakis.net/tutorials/python/")
 
-    django_cat = add_cat("Django",likes=64,views=32)
+    django_cat = add_cat("Django",like=64,view=32)
 
     add_page(cat=django_cat,
         title="Official Django Tutorial",
@@ -37,7 +37,7 @@ def populate():
         title="How to Tango with Django",
         url="http://www.tangowithdjango.com/")
 
-    frame_cat = add_cat("Other Frameworks",likes=32,views=16)
+    frame_cat = add_cat("Other Frameworks",like=32,view=16)
 
     add_page(cat=frame_cat,
         title="Bottle",
@@ -59,10 +59,10 @@ def add_page(cat, title, url, views=0):
     p.save()
     return p
 
-def add_cat(name,likes,views):
+def add_cat(name,like,view):
     c = Category.objects.get_or_create(name=name)[0]
-    c.views=views
-    c.likes=likes
+    c.views=view
+    c.likes=like
     c.save()
 
     return c

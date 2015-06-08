@@ -3,11 +3,16 @@ from tango.models import Category,Page
 
 # Register your models here.
 
-admin.site.register(Category)
+
+
+class CategoryAdmin(admin.ModelAdmin): # hace que se llene el slug al momento
+                                       # de agregar el nombre de una categoria
+	prepopulated_fields ={'slug':('name',)}
 
 class PageAdmin(admin.ModelAdmin):
 
 	list_display=('category','title','url')
 
 admin.site.register(Page,PageAdmin)
+admin.site.register(Category,CategoryAdmin)
 
