@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
-        <title>Tango</title>
-    </head>
+{% extends 'base.html'%}
+{% block title%} Tango {% endblock%}
 
-    <body>
-        <h1>Login to Tango</h1>
+{% block body_block %}
 
-        <form id="login_form" method="post" action="/tango/login/">
-            {% csrf_token %}
-            Username: <input type="text" name="username" value="" size="50" />
-            <br />
-            Password: <input type="password" name="password" value="" size="50" />
-            <br />
+    <h1> Login Tango </h1>
 
-            <input type="submit" value="submit" />
-        </form>
+    <form id="login_form" method="post" action="{% url 'login'%}">
+        {% csrf_token %}
+        Username: <input type="text" name="username" value="" size="50" />
+        <br />
+        Password: <input type="password" name="password" value="" size="50" />
+        <br />
+        <input type="submit" value="submit" />
+    </form>
 
-    </body>
-</html>
+{% endblock%}
+
+
+

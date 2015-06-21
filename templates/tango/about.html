@@ -1,5 +1,34 @@
-<!doctype html>
+{% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block title%} About {% endblock%}
+
+{% block body_block%}
+
+	<div class="page-header">
+
+		<h1>About</h1>
+	</div>
+
+	<div>
+
+	<p> </strong> .</p>
+
+	<h1> Probando porque mi html no funciona bien </h1>
+
+
+	Probando con algun texto y la cosa del diccionario {{boldmessage}} <br />
+
+	<img width="140" height="100" src="{% static "images/haunter.jpg" %}" alt="Picture of Rango" />
+
+	</div>
+
+    <p> Visits:{{visits}}</p>
+
+{% endblock%}
+{# <!doctype html>
+{% load staticfiles %}
+
 	<html>
 
 		<head>
@@ -23,3 +52,4 @@
 
 
 	</html>
+ #}

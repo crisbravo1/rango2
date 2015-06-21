@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+
+{% load staticfiles %} <!-- New line -->
+
+<html>
+
+    <head>
+        <title>Tango</title>
+    </head>
+
+    <body>
+        {% if  user.is_authenticated %}
+        <h1>Rango says... hello {{user.username}} !</h1>
+        {% else %}
+        <h1>Rango says... hello world !</h1>
+        {% endif %}
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li><a href="/tango/category/{{category.slug}}">
+                {{category.name}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong> There are no categories present. </strong>
+        {% endif %}
+        <!--hello world! <strong>{{ boldmessage }}</strong><br /> -->
+        <!--<img src="{% static "images/g.jpg" %}" alt="Picture of Rango" /> -->
+        <a href="/tango/about/">About</a><br />
+         <!-- New line -->
+
+        {% if user.is_authenticated%}
+        <a href="/tango/logout/">Logout</a><br />
+        <a href="/tango/restricted/">Mensaje de verificacion</a><br />
+        <a href="/tango/add_category/">Add new category</a><br />
+        {% else%}
+        <a href="/tango/register/">Register Here</a><br />
+        <a href="/tango/login/">Login</a><br />
+        {% endif %}
+
+    </body>
+
+</html>

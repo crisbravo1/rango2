@@ -14,5 +14,11 @@
 			"follow_symlinks": true,
 			"path": "."
 		}
-	]
+	],
+
+	"settings":
+    {
+        "anaconda_linting": false,
+
+    }
 }

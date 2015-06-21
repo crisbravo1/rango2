@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tango',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,5 +100,13 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/' ## donde seran accesibles todos los archivos en el development server
 MEDIA_ROOT = os.path.join(BASE_DIR,'media') ##donde se guardara los archivos subidos por el usuario en el disco local
-LOGIN_URL = 'tango/login/' ## me permite redirigir un usuario no log in a la pagina deseada
+#LOGIN_URL = 'tango/login/' ## me permite redirigir un usuario no log in a la pagina deseada
 ## en este caso la pagina de login
+
+## Opciones para el paquete registration
+
+REGISTRATION_OPEN=True  ## Si es true los usuarios pueden registrarse
+ACCOUNT_ACTIVATION_DAYS=7 ## one week activation window
+REGISTRATION_AUTO_LOGIN=True  ## si es cierto los usuarios automaticamente log-in
+LOGIN_REDIRECT_URL='/tango' ## pagina que los usuario logueados llegaran
+LOGIN_URL='/accounts/login' ## paginas que van los usuarios si no estan logueados
